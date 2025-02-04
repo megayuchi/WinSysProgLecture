@@ -1,0 +1,31 @@
+
+PFN 24 bits
+12-35 bits mask -> 0x0000000ffffff000
+
+PROCESS: af6ed6c0
+DirBase: f7f170e0
+Environment: 028b0af0
+
+Address : 00000000028B0AF0
+Page Drectory Pointer : 000(0)
+Page Directory : 014(20)
+Page Table : 0b0(176)
+OffsetInPage : af0(2800)
+
+page directory pointer base : f7f170e0
+page directory pointer value(PDPE) : f7f170e0 + (000*8) = 00000000`48457801
+page directory base : 00000000`48457801 & 0x0000000ffffff000 -> 48457000
+page directory value(PDE) : 48457000 + (014*8) -> 00000000`15148867
+page table base : 00000000`15148867 & 0x00000000fffff000 -> 15148000
+page table value(PTE) : 15148000 + (0b0*8) -> 80000000`4d366867
+page : 80000000`4d366867 & 0x0000000ffffff000 -> 4d366000
+physical address : 4d366000 + af0 -> 4d366af0
+
+[vtop]
+lkd> !vtop f7f170e0 00000000028B0AF0
+X86VtoP: Virt 00000000028b0af0, pagedir 00000000f7f170e0
+X86VtoP: PAE PDPE 00000000f7f170e0 - 0000000048457801
+X86VtoP: PAE PDE 00000000484570a0 - 0000000015148867
+X86VtoP: PAE PTE 0000000015148580 - 800000004d366867
+X86VtoP: PAE Mapped phys 000000004d366af0
+Virtual address 28b0af0 translates to physical address 4d366af0.

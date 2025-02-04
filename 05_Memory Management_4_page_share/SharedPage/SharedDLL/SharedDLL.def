@@ -1,0 +1,7 @@
+LIBRARY     SharedDLL
+
+DESCRIPTION 'SharedDLL 2025. megayuchi'
+
+EXPORTS
+	GetDllString PRIVATE
+	DllCreateInstance	PRIVATE

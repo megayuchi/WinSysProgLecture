@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{b29e1aa5-a57c-4cf3-96ef-94060bedf7ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC">
+      <UniqueIdentifier>{e7884623-ae6b-4f82-9e44-70c9b599dba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Stub">
+      <UniqueIdentifier>{f6d0607e-e4fb-4db3-9d94-79e510e2d119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Stub\x64">
+      <UniqueIdentifier>{383c6a5e-b130-4071-800e-b7f9d5def715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Stub\x86">
+      <UniqueIdentifier>{4668ee34-0f03-40ee-b176-454b75f0f42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Stub\arm64">
+      <UniqueIdentifier>{972e40fd-598a-443a-8eb8-e158bbb5d7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\RPC_Implements">
+      <UniqueIdentifier>{dc220897-d9ed-4137-9bf2-a54580d82946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Client">
+      <UniqueIdentifier>{0c8e3561-b5cb-478c-9200-d71b47f4bcca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RPC\Util">
+      <UniqueIdentifier>{89616653-522e-4fb4-a0bf-3f6b08a40e2b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RPC_Stub\x86\RPC_Stub_c.c">
+      <Filter>RPC\Stub\x86</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RPC_Stub\arm64\RPC_Stub_c.c">
+      <Filter>RPC\Stub\arm64</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RPC_Stub\x64\RPC_Stub_c.c">
+      <Filter>RPC\Stub\x64</Filter>
+    </ClCompile>
+    <ClCompile Include="RPC_Implements.cpp">
+      <Filter>RPC\RPC_Implements</Filter>
+    </ClCompile>
+    <ClCompile Include="RpcClient.cpp">
+      <Filter>RPC\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Util\RpcUtil.cpp">
+      <Filter>RPC\Util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RPC_Stub\x86\RPC_Stub_h.h">
+      <Filter>RPC\Stub\x86</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RPC_Stub\arm64\RPC_Stub_h.h">
+      <Filter>RPC\Stub\arm64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RPC_Stub\x64\RPC_Stub_h.h">
+      <Filter>RPC\Stub\x64</Filter>
+    </ClInclude>
+    <ClInclude Include="RpcClient.h">
+      <Filter>RPC\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Util\RpcUtil.h">
+      <Filter>RPC\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

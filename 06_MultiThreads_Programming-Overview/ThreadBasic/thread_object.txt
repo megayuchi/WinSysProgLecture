@@ -1,0 +1,4 @@
+!handle [핸들] 7 [_EPROCESS주소]
+ex) !handle a4 7 ffffcc84c7526080
+!thread ffffcc84c319e080
+dt _ETHREAD ffffcc84c319e080

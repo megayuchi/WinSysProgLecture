@@ -1,0 +1,8 @@
+download windows sdk
+https://developer.microsoft.com/ko-kr/windows/downloads/windows-sdk/
+
+run as administrator in CMD
+"C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\kdnet.exe" 192.168.0.100 50000
+bcdedit /debug on
+bcdedit /set "{dbgsettings}" key t.e.s.t
+bcdedit /dbgsettings

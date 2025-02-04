@@ -1,0 +1,60 @@
+https://shhoya.github.io/windows_hwndobject.html
+
+HANDLE_TABLE_ENTRY  16bytes
+최하위 2비트 클리어마스크 : 0xfffffffffffffffc 
+
+_EPROCESS포인터 ffffb68c9da0b340인 프로세스에서 0xa0핸들을 탐색
+[명령어]
+!handle 0xa0 f ffffb68c9da0b340
+
+[결과]
+Handle table at ffffc68041fdb300 with 41 entries in use
+
+00a0: Object: ffffb68ca25e7450  GrantedAccess: 001f0003 (Inherit) Entry: ffffc68047b2b280
+Object: ffffb68ca25e7450  Type: (ffffb68c956cc400) Event
+    ObjectHeader: ffffb68ca25e7420 (new version)
+        HandleCount: 1  PointerCount: 2
+        Directory Object: ffffc68037d89380  Name: EVENT
+
+[수동탐색]
+TableCode : 0xffffc68047b2b000
+HANDLE_TABLE_ENTRY : 0xffffc68047b2b000 & 0xfffffffffffffffc = ffffc680`47b2b000
+
+lkd> dt _HANDLE_TABLE_ENTRY 0xffffc68047b2b000 + (a0/4) * 0x10
+nt!_HANDLE_TABLE_ENTRY
+   +0x000 VolatileLowValue : 0n-5292676935508295679
+   +0x000 LowValue         : 0n-5292676935508295679
+   +0x000 InfoTable        : 0xb68ca25e`74200001 _HANDLE_TABLE_ENTRY_INFO
+   +0x008 HighValue        : 0n2031619
+   +0x008 NextFreeHandleEntry : 0x00000000`001f0003 _HANDLE_TABLE_ENTRY
+   +0x008 LeafHandleValue  : _EXHANDLE
+   +0x000 RefCountField    : 0n-5292676935508295679
+   +0x000 Unlocked         : 0y1
+   +0x000 RefCnt           : 0y0000000000000000 (0)
+   +0x000 Attributes       : 0y000
+   +0x000 ObjectPointerBits : 0y10110110100011001010001001011110011101000010 (0xb68ca25e742)
+   +0x008 GrantedAccessBits : 0y0000111110000000000000011 (0x1f0003)
+   +0x008 NoRightsUpgrade  : 0y0
+   +0x008 Spare1           : 0y000000 (0)
+   +0x00c Spare2           : 0
+
+b68ca25e74200001
+
+
+다음의 공식을 사용
+Object = (HandleTableEntry.VolatileLowValue >> 0x10) & 0xFFFFFFFF`FFFFFFF0 + 0x30
+? 0n-5292676935508295679 = b68ca25e`74200001
+? ((b68ca25e`74200001 >>> 0x10) & 0xFFFFFFFF`FFFFFFF0) + 0x30 = ffffb68c`a25e7450
+
+[결과]
+lkd> !object ffffb68c`a25e7450
+Object: ffffb68ca25e7450  Type: (ffffb68c956cc400) Event
+    ObjectHeader: ffffb68ca25e7420 (new version)
+    HandleCount: 1  PointerCount: 2
+    Directory Object: ffffc68037d89380  Name: EVENT
+
+
+RefCountField
+0–15	참조 카운트 (Reference Count)
+16–23	삭제 플래그 (Delete Flag)
+24–31	잠금 플래그 (Lock Flag)

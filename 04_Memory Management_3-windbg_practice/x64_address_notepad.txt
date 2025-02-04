@@ -1,0 +1,41 @@
+
+PFN 36 bits
+12-51 bits mask -> 0x0000fffffffff000
+
+Process: ffff9f0fbb4ed080
+DirBase: 1c9700000
+evironment : 00000155eef70fe0
+
+Address : 00000155EEF70FE0
+Page Map Level4 : 002(2)
+Page Drectory Pointer : 157(343)
+Page Directory : 177(375)
+Page Table : 170(368)
+OffsetInPage : fe0(4064)
+
+page map level 4 value (PXE) : 1c9700000  + (002*8) -> 0a000000`2c31f867
+page directory pointer base : 0a000000`2c31f867 & 0x0000fffffffff000 -> 00000000`2c31f000
+page directory pointer value (PDPE) : 00000000`2c31f000 + (157*8) -> 0a000001`40120867
+page directory base : 0a000001`40120867 & 0x0000fffffffff000 -> 00000001`40120000
+page directory value (PDE) : 00000001`40120000 + (177*8) -> 0a000000`0c328867
+page table base : 0a000000`0c328867 & 0x0000fffffffff000 -> 00000000`0c328000
+page table value (PTE) : 00000000`0c328000 + (170*8) -> 82000001`dfc8e867
+page : 82000001`dfc8e867 & 0x0000fffffffff000 -> 00000001`dfc8e000
+physical address : 00000001`dfc8e000 + fe0 -> 00000001`dfc8efe0
+
+[vtop]
+2: kd> !vtop 1c9700000 00000155eef70fe0
+Amd64VtoP: Virt 00000155eef70fe0, pagedir 00000001c9700000
+Amd64VtoP: PML4E 00000001c9700010
+Amd64VtoP: PDPE 000000002c31fab8
+Amd64VtoP: PDE 0000000140120bb8
+Amd64VtoP: PTE 000000000c328b80
+Amd64VtoP: Mapped phys 00000001dfc8efe0
+Virtual address 155eef70fe0 translates to physical address 1dfc8efe0.
+
+[pte]
+0: kd> !pte 00000155eef70fe0
+                                           VA 00000155eef70fe0
+PXE at FFFFF2F97CBE5010    PPE at FFFFF2F97CA02AB8    PDE at FFFFF2F940557BB8    PTE at FFFFF280AAF77B80
+contains 0A0000002C31F867  contains 0A00000140120867  contains 0A0000000C328867  contains 82000001DFC8E867
+pfn 2c31f     ---DA--UWEV  pfn 140120    ---DA--UWEV  pfn c328      ---DA--UWEV  pfn 1dfc8e    ---DA--UW-V

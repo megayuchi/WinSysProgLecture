@@ -1,0 +1,6 @@
+LIBRARY     NamedPipeLib
+
+DESCRIPTION 'NamedPipeLib 2024. megayuchi'
+
+EXPORTS
+	DllCreateInstance	PRIVATE

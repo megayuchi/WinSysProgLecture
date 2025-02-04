@@ -1,0 +1,9 @@
+
+LIBRARY     DLL_UtilityLib_x64_debug
+
+EXPORTS
+	DLL_MemCpy_1Byte
+	DLL_MemCpy_4Bytes
+	DLL_MemCpy_8Bytes
+	DLL_MemCpy_16Bytes
+	DLL_MemCpy_32Bytes

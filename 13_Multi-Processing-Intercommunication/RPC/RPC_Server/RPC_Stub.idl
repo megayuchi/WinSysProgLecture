@@ -1,0 +1,15 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(f56cd7ef-28ad-47d6-821b-f0e9995938cd),
+		version(1.0)
+]
+//size_is(A)에서 A는 배열의 개수(size in byte가 아님)
+interface RPC_StubInteface
+{
+	unsigned int RPC_ConvertToUpperCase([out, size_is(out_buffer_count)] wchar_t* pOutBuffer, [in] unsigned int out_buffer_count, [in, size_is(in_chr_count)] const wchar_t* pInBuffer, [in] unsigned int in_chr_count);
+	unsigned int RPC_MemCpy([out, size_is(dest_size)] unsigned char* pDest, [in] unsigned int dest_size, [in, size_is(src_size)] const unsigned char* pSrc, [in] unsigned int src_size);
+};
+
+
