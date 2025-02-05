@@ -52,8 +52,8 @@ x64/
 win32/
 .vs/
 
-!RPC_Stub/arm64
-!RPC_Stub/x64
-!RPC_Stub/x86
+!13_Multi-Processing-Intercommunication/RPC/RPC_Stub/x64
+!13_Multi-Processing-Intercommunication/RPC/RPC_Stub/x86
+!13_Multi-Processing-Intercommunication/RPC/RPC_Stub/arm64
 
 
