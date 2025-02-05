@@ -52,3 +52,8 @@ x64/
 win32/
 .vs/
 
+!RPC_Stub/arm64/
+!RPC_Stub/x64/
+!RPC_Stub/x86/
+
+
