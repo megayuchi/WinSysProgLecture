@@ -49,5 +49,6 @@
 debug/
 release/
 x64/
+win32/
 .vs/
 
