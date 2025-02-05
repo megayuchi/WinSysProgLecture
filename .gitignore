@@ -40,3 +40,14 @@
 *.vspscc
 *.user
 *.vssscc
+
+# data
+*.mp0
+*.bin
+
+# folders
+debug/
+release/
+x64/
+.vs/
+
